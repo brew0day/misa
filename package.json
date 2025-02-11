@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "vercel dev",
-    "start": "node api/index.js"
+    "start": "node api/killbot.js"
   },
   "dependencies": {
     "dkim": "^2.0.0",
