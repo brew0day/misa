@@ -1,0 +1,7 @@
+{
+  "name": "misa",
+  "version": "1.0.0",
+  "dependencies": {
+    "killbot.to": "latest"
+  }
+}
