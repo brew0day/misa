@@ -1,7 +1,5 @@
 {
-  "name": "misa-bot-block",
-  "version": "1.0.0",
   "dependencies": {
-    "killbot.to": "latest"
+    "killbot.to": "^1.2.7"
   }
 }
