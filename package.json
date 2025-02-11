@@ -1,18 +1,7 @@
 {
-  "name": "mon-projet-vercel",
+  "name": "misa-bot-block",
   "version": "1.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vercel dev",
-    "start": "node api/killbot.js"
-  },
   "dependencies": {
-    "dkim": "^2.0.0",
-    "dns": "0.2.2",
-    "form-data": "^4.0.0",
-    "killbot.to": "^1.0.0", 
-    "node-fetch": "^3.3.1",
-    "tqdm": "^4.64.1",
-    "termcolor": "^0.1.0"
+    "killbot.to": "latest"
   }
 }

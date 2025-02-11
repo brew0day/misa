@@ -1,8 +1,7 @@
 import KillBot from 'killbot.to';
 
-// Renseigne ta clé API KillBot
-const apiKey = '225e7b97-524c-45d6-800c-aa7e3831a1ab';
-const config = 'default';
+const apiKey = '225e7b97-524c-45d6-800c-aa7e3831a1ab'; // Remplace par TA clé API
+const config = 'default'; // Ou un autre config si tu en as un
 const killBot = new KillBot(apiKey, config);
 
 export default async function handler(req, res) {
@@ -10,29 +9,28 @@ export default async function handler(req, res) {
     const result = await killBot.checkReq(req);
 
     if (result.block) {
-      // CAS BOT/BLOQUÉ => on affiche la page "404 Not Found" demandée
-      const notFoundPage = `
+      // Si c'est un bot : renvoyer une page “404 Not Found” (factice)
+      const fake404 = `
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html>
-<head><title>404 Not Found</title></head>
-<body>
+<html><head>
+<title>404 Not Found</title>
+</head><body>
 <h1>Not Found</h1>
 <p>The requested URL was not found on this server.</p>
 <hr>
 <address>Apache/2.4.57 (Debian) Server at vercel.app Port 80</address>
-</body>
-</html>`;
+</body></html>`;
 
-      // Renvoie un statut 404 avec le HTML en question
-      res.status(404).send(notFoundPage);
+      // Renvoyer un statut 404
+      res.status(404).send(fake404);
     } else {
-      // CAS LÉGITIME => redirection vers google.com
+      // Si c'est un humain, on le redirige (ex. Google)
       res.writeHead(302, { Location: 'https://google.com' });
       res.end();
     }
-  } catch (error) {
-    console.error('KillBot error:', error);
-    // Erreur interne => 500
+  } catch (err) {
+    console.error('KillBot error:', err);
+    // En cas d'erreur, on peut renvoyer un 500
     res.status(500).send('Internal Server Error');
   }
 }
